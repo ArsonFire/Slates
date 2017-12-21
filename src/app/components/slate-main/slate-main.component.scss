@@ -1,187 +1,263 @@
 @import "./../../../assets/scss/typography.scss";
+@import "./../../../assets/scss/themes.scss";
+
+.clickable {
+    cursor: pointer;
+}
 
 .slate {
-    border: solid 2px black;
+    border: solid 1px grey;
     border-radius: 5px;
+    width: 63mm;
+    height: 88mm;
 
-    .lastItem {
-        border-bottom: solid 1px black;
-    }
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    .minor-title {
-        @include oswald-bold(16px);
-    }
+    padding-left:3mm;
+    padding-right:3mm;
+    
+    margin-bottom: 10px;
+    margin-right: 5px;
 
-    .title {
-        background-color: black;
-        padding-top: 5px;
-        padding-bottom: 5px;
+    .slate-content {
+        border: solid 2px black;
+        border-radius: 5px;
+        margin-top: 3mm;
+        margin-bottom: 3mm;
 
-        
-        .battlefield-role {
-            
-            background-size: 50px 50px;
-            background-repeat: no-repeat;
-            height: 50px;
+        .no-pad {
+            padding-left: 0;
+            padding-right: 0;
+        }
 
-            &.hq {
-                background-image: url("./../../../assets/images/hq.png");
-            }
-            &.troop {
-                background-image: url("./../../../assets/images/troop.png");
-            }
-            &.fastAttack {
-                background-image: url("./../../../assets/images/fastAttack.png");
-            }
-            &.elite {
-                background-image: url("./../../../assets/images/elite.png");
-            }
-            &.heavySupport {
-                background-image: url("./../../../assets/images/heavySupport.png");
-            }
-            &.flyer {
-                background-image: url("./../../../assets/images/flyer.png");
-            }
-            &.dedicatedTransport {
-                background-image: url("./../../../assets/images/dedicatedTransport.png");
-            }
-            &.fortification {
-                background-image: url("./../../../assets/images/lordOfWar.png"); //TODO - get image
-            }
-            &.lordOfWar {
-                background-image: url("./../../../assets/images/lordOfWar.png");
-            }
+        .only-left-pad {
+            padding-left: 3px;
+            padding-right: 0;
+        }
+
+        .spacer {
+            border-bottom: solid 1px black;
+        }
+
+        .minor-title {
+            @include oswald-bold(10px);
         }
 
         .name {
-            @include noto-bold(24px);
+            height: fit-content;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            @include noto-bold(12px);
             color: white;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            .name2 {
+                @include noto-bold(9px);
+            }
         }
 
-        .power {
-            position: relative;
+        .statline {
+            height: fit-content;
+            border-bottom: solid 2px black;
 
-            .power-block {
-                background-image: url("./../../../assets/images/power.png");
-                background-size: 50px 50px;
-                background-repeat: no-repeat;
-                height: 50px;
+            .statline-heading {
+                color: black;
+                @include oswald-bold(10px);
+            }
+    
+            .statline-profile-name {
+                @include noto(8px); 
             }
 
-            .power-number {
-                font-size: 28px;
-                font-weight: 700;
-                color: #c7c9cc;
-                position: absolute;
-                top: 0px;
-                left: 33px;
+            .statline-profile {
+                color: black;
+                @include noto(10px);
             }
-
-             .double-digits {
-                left: 24px;
-            }   
-
-        }
-    }
-
-    .statline {
-
-        border-bottom: solid 2px black;
-
-        .statline-heading {
-            background-color: #b8b8ba;
-            color: black;
-            @include oswald-bold(16px);
-            font-size: 16px;
-            font-weight: 700;
         }
 
-        .statline-profile {
-            background-color: #ededef;
-            color: black;
-            @include noto(14px);
-            line-height: 26px;
+        .unitcomp {
+            @include noto(8px);
+            padding-left: 3px;
+            padding-right: 3px;
+            padding-bottom: 2px;
+        }
 
-            &.odd {
-                background-color: #e3e3e5;
+        .weapon-heading {
+            @include oswald-bold(10px);
+            border-bottom: solid 2px black;
+        }
+        
+        .weapon-profiles {
+
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+            &:hover {
+                transform: scale(1.05);
+                border: 2px solid red;
             }
 
+            .weapon-profile {
+                @include noto(8px);
+                padding-top: 2px;
+                padding-bottom: 2px;
+            }
+        }
+
+        .wargear {
+            @include noto(8px);
+            border-bottom: solid 1px black;
+           
+            .wargear-options {
+                padding-left: 3px;
+                margin-top: 2px;
+                margin-bottom: 2px;
+            }
+        }
+
+        &.ability-edit {
+            transition: all .2s ease-in-out;
+            &:hover {
+                transform: scale(1.05);
+                border: 2px solid red;
+                cursor: pointer;
+            }
+        }
+
+        .abilities {
+            @include noto(9px);
+    
+            .ability {
+                padding-bottom: 5px;
+            }
+           
+           .ability-name {
+               @include noto-bold(9px);
+           }
+        }
+
+        .psyker {
+
+            .psyker-heading {
+                @include oswald-bold(10px);
+                border-bottom: solid 2px black;
+            }
+
+            @include noto(8px);
+            border-bottom: solid 1px black;
+            span {
+                @include noto-bold(8px);
+            }
+        }
+
+        .keywords {
+            @include noto-bold(8px);
+            text-transform: uppercase;
+            border-bottom: solid 1px black;
         }
     }
     
-    .unitcomp {
-        background-color: #e3e3e5;;
-        color: black;
-        @include noto(14px);
-        line-height: 24px;
-    }
+    //Themes
+    &.theme-sm {
+        background-image: $sm-background-image;
 
-    .weapon-heading {
-        background-color: #b8b8ba;
-        color: black;
-        @include oswald-bold(16px);
-        border-bottom: solid 1px black;
-    }
+        .slate-content {
+            background-color: $sm-content-background-colour;
 
-    .oddweapon {
-        .row {
-            background-color: #e3e3e5;
-        }
-    }
-    .weapon-profile {
-            background-color: #ededef;
-            color: black;
-            @include noto(14px);
-            // line-height: 24px;
-            padding-top: 2px;
-            padding-bottom: 2px;
-
-            .no-right-padding {
-                padding-right: 0px;
+            .name {
+                background-image: $sm-name-background-image;
             }
+
+            .statline {
+                background-color: $sm-heading-background-colour;
+    
+                .statline-heading {
+                    background-color: $sm-grid-background-colour1;
+                }
+        
+                .statline-profile {
+                    &.odd {
+                        background-color: $sm-grid-background-colour2;
+                    }
+        
+                }
+            }
+
+            .weapon-heading {
+                background-color: $sm-heading-background-colour;
+            }
+
+            .psyker {
+                .psyker-heading {
+                    background-color: $sm-heading-background-colour;
+                }
+            }
+
+            .oddweapon {
+                .row {
+                    background-color: $sm-grid-background-colour2;
+                }
+            }
+
+            .weapon-profile {
+                background-color: $sm-grid-background-colour1;
+            }
+
+            
+        }
+
     }
+}
 
-    .wargear {
-        background-color: #e3e3e5;
-        @include noto(14px);
-        border-bottom: solid 1px black;
-       
-
-        .wargear-options {
-            margin-top: 2px;
-            margin-bottom: 2px;
+.weapon-option-modal {
+    @include noto(14px);
+    .unit-comp {
+        @include noto-bold(14px);
+    }
+    .wargear-text {
+        
+    }
+    .include-options{
+        .include-heading {
+            @include noto-bold(14px);
         }
     }
 
-    .abilities {
-        background-color: #e3e3e5;
-        @include noto(14px);
-        border-bottom: solid 1px black;
+    .include-buttons {
+        margin-top: 20px;
+    }
+}
 
-        .ability {
-            padding-bottom: 5px;
+.ability-option-modal {
+    @include noto(14px);
+    
+    .include-options{
+        .include-heading {
+            @include noto-bold(14px);
+            margin-bottom: 10px;
         }
-       
-       .ability-name {
-           @include noto-bold(14px);
-       }
     }
 
-
-    .psyker {
-        background-color: #e3e3e5;
-        @include noto(14px);
-        border-bottom: solid 1px black;
+    .include-buttons {
+        margin-top: 20px;
     }
+}
 
-    .keywords {
-        background-color: #e3e3e5;
-        @include noto(14px);
-        border-bottom: solid 1px black;
 
-        .keyword-list {
-            @include noto(16px);
-            text-transform: uppercase;
-        }
+/deep/ 
+.ui-dialog {
+    .ui-dialog-titlebar {
+        background-image: $sm-name-background-image;
+        color: white;
+    }
+    .ui-dialog-content {
+        background-color: $sm-grid-background-colour2;
+    }
+}
+
+@media print {
+    .no-print {
+        display: none !important;
     }
 }

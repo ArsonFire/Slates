@@ -1,4 +1,4 @@
-import { Slate } from './../models/slate';
+import { Ability } from './../models/slate';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
@@ -6,12 +6,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class SlateService {
+export class AbilityService {
 
   constructor(private http: Http) { }
 
-  getSlates(filename: string): Observable<Slate[]> {
-    return this.http.get('./assets/data/' + filename + '.json')
+  getAbilities(filename: string): Observable<Ability[]> {
+    return this.http.get('./assets/data/abilities.json')
                     .map(this.extractData)
                     .catch(this.handleError);
   }

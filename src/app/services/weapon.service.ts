@@ -1,4 +1,4 @@
-import { Slate } from './../models/slate';
+import { Weapon } from './../models/slate';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
@@ -6,12 +6,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class SlateService {
+export class WeaponService {
 
   constructor(private http: Http) { }
 
-  getSlates(filename: string): Observable<Slate[]> {
-    return this.http.get('./assets/data/' + filename + '.json')
+  getWeapons(filename: string): Observable<Weapon[]> {
+    return this.http.get('./assets/data/weapons.json')
                     .map(this.extractData)
                     .catch(this.handleError);
   }

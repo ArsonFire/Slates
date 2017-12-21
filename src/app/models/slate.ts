@@ -1,11 +1,13 @@
 export class Slate {
+    id: string;
     name: string;
     role: BattleFieldRole;
     powerRating: number;
     profiles: Profile[];
     unitComp: string;
-    wargear: string[];
+    wargear: Wargear;
     abilities: Ability[];
+    weaponAbilities: Ability[];
     weapons: Weapon[];
     psyker: string;
     factionKeywords: string[];
@@ -38,18 +40,28 @@ export interface Profile {
 }
 
 export interface Wargear {
-    title: string;
+    wargearText: string[];
+    wargearOptions: WargearOption[];
+}
+
+export interface WargearOption {
+    name: string;
+    equipedByDefault: boolean;
 }
 
 export interface Ability {
     name: string;
+    lookup: boolean;
     detail: string;
+    compact: string;
+    displayFullText: boolean;
 }
 
 export interface Weapon {
     name: string;
     multiProfileComment: string;
     profiles: WeaponProfile[];
+    equiped: boolean;
 }
 
 export interface WeaponProfile {
@@ -60,4 +72,5 @@ export interface WeaponProfile {
     ap: string;
     damage: string;
     abilities: string;
+    abilityNumber: number;
 }
